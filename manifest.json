@@ -1,0 +1,26 @@
+{
+
+  "manifest_version": 2,
+  "name": "GithubCommitFilter",
+  "version": "1.0",
+
+  "description": "Adds a textbox to https://github.com/*/*/commits/* to filter the commit list.",
+
+  "applications": {
+    "gecko": {
+      "id": "githubcommitfilter@example.com"
+    }
+  },
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*/*/commits/*"],
+      "js": ["githubCommitFilter.js"]
+    }
+  ]
+
+}
