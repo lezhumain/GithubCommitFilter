@@ -145,18 +145,28 @@ export class GithubCommitFilter{
         return formE;
     }
 
+    createBootstrapForm1(): HTMLDivElement {
+        let template = '<form class="commitFilterForm form-inline offset-md-2"><div class="form-group col-md-3" style="display: inline-block; margin-top: 0px;"><input class="commitFilter form-control" style="margin: 0px;" placeholder="Filter by name"></div><div class="form-group col-md-3" style="display: inline-block; margin-top: 0px;"><input class="commitFilter form-control" style="margin: 0px;" placeholder="Filter by commit"></div></form>';
+        let mainFilterWraper: HTMLDivElement = document.createElement("div");
+        mainFilterWraper.innerHTML = template;
+
+        return mainFilterWraper;
+    }
+
     addFilter(): void{
         const className: string = 'commitFilter';
 
         const allForm: HTMLFormElement = this.createBootstrapForm(className);
+            // const test1: HTMLDivElement = this.createBootstrapForm1();
 
         this.removeElements('commitFilterForm');
         let element = document.getElementsByClassName("file-navigation")[0];
 
         element.append(allForm);
+        // element.append(test1);
         console.log('Added');
     }
 }
 
-let filter: GithubCommitFilter = new GithubCommitFilter();
-filter.addFilter();
+//let filter: GithubCommitFilter = new GithubCommitFilter();
+//filter.addFilter();
