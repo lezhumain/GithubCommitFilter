@@ -157,14 +157,29 @@ export class GithubCommitFilter{
         const className: string = 'commitFilter';
 
         const allForm: HTMLFormElement = this.createBootstrapForm(className);
-            // const test1: HTMLDivElement = this.createBootstrapForm1();
+        const test1: HTMLDivElement = this.createBootstrapForm1();
 
         this.removeElements('commitFilterForm');
         let element = document.getElementsByClassName("file-navigation")[0];
 
-        element.append(allForm);
-        // element.append(test1);
+
+        // element.append(allForm);
+        element.append(test1);
         console.log('Added');
+
+        this.addChangHandlers(className);
+    }
+
+    private addChangHandlers(className: string) {
+        let paras: HTMLCollectionOf<HTMLInputElement> = <HTMLCollectionOf<HTMLInputElement>>document.getElementsByClassName(className);
+
+        paras[0].onchange = ($event) => {
+            this.doFilter(className);
+        };
+
+        paras[1].onchange = ($event) => {
+            this.doFilterCommit(className);
+        };
     }
 }
 
